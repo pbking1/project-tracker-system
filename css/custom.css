@@ -1,0 +1,22 @@
+body {
+	padding-top: 50px
+}
+
+.vcenter {
+	padding-top: 6px;
+}
+
+.navbar-brand {
+	color: white !important;
+}
+
+#navlogo {
+	float: left;
+	margin-right: 5px;
+}
+
+#signinlogo {
+	margin-right: 5px;
+	margin-left: 50px;
+	margin-top: -5px;
+}
