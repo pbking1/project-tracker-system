@@ -4,13 +4,7 @@
  * 
   */
 
-$con = mysqli_connect("localhost","pengbin","pengbin","pengbin_db");
-
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-} 
-
-
+$conn = mysql_connect("localhost","pengbin","pengbin");
+mysql_select_db("pengbin_db", $conn);
 
 ?>

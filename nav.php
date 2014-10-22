@@ -1,11 +1,10 @@
 <?php
-
 // This imports a file containing all of our style sheets and javascript
 include('import.php');
+include ('authCheck.php');
 
 // Print out the navigation HTML
 $content = <<< NAV
-
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -25,7 +24,7 @@ $content = <<< NAV
             <!-- Top right navigation  -->
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Welcome <span style="color:white;">User</span></a></li>
+            <li><a href="/dajacinc/dev/logout.php">Welcome <span style="color:white;">{$_SESSION['uid']}</span></a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

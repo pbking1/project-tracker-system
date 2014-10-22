@@ -1,5 +1,41 @@
 
 <!DOCTYPE html>
+<?php 
+  require_once("db_connect.php");
+  session_start();
+  $error = NULL;
+
+  if(isset($_SESSION['uid'])) {
+    header( 'Location: /dajacinc/dev/projects.php' ) ;
+  }
+
+  if (isset($_POST['password'])) {
+      $sql = "SELECT password FROM `T_USER` WHERE Username = '".$_POST['username']."' LIMIT 0,1";
+      $result = mysql_query($sql, $conn);
+      $res = mysql_fetch_assoc($result);
+
+      // If the username is not found, stop
+      if (!$res) {
+        $error =  "username not found!";
+      }
+      // Otherwise look for the password
+      else {
+          $row = mysql_fetch_row($result);
+          $password = $res['password'];
+          mysql_close($conn);
+
+          // If password is wrong, stop
+          if ($_POST['password'] != $password) {
+            $error =  "password is wrong!";
+          }
+          // Otherwise the user is now logged in
+          else {
+            $_SESSION["uid"] = $_POST['username'];
+            header( 'Location: /dajacinc/dev/projects.php' ) ;
+          }
+      }
+  }
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,10 +61,15 @@
     <div class="container">
 
       <!-- Sign In Form -->
-      <form class="form-signin" role="form" action="projects.php">
+      <?php 
+        if (isset($error)) {
+          echo "<div class='alert alert-warning' role='alert'>$error</div>";
+        }
+      ?>
+      <form class="form-signin" role="form" action="index.php" method="POST">
         <h2 class="form-signin-heading"><img src="img/logo-dark.svg" id="signinlogo" width="50px" height="50px">Dajac Inc.</h2>
-        <input type="text" class="form-control" placeholder="Username" value="Username" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" value="password" required>
+        <input type="text" name='username' class="form-control" placeholder="Username" required autofocus>
+        <input type="password" name='password' class="form-control" placeholder="Password" required>
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>

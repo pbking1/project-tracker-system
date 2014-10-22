@@ -47,7 +47,10 @@
 			//mysql_select_db("dajac", $conn);
 			$sql = "insert into T_USER_CLASS (Class_level, Username, Description, Hourly_cost, Charge_through_rate, Active) values ($_POST[classname] , 'cc', '$_POST[des]', $_POST[cost], $_POST[rate], '$_POST[active]')";
 		//	$s = "insert into T_USER_CLASS(Class_level, Username, Description, Hourly_cost, Charge_through_rate, Active) values (0, 'cc', 'aaaa', 1, 1, 1)";
-			mysql_query($sql, $conn);
+			//mysqli_query($conn, $sql);
+      if (!mysqli_query($conn, $sql)) {
+        printf("Errormessage: %s\n", mysqli_error($conn));
+      }
 		?>  
         </div>
       </div>
