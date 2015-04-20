@@ -2,9 +2,12 @@
 // This imports a file containing all of our style sheets and javascript
 include('import.php');
 include ('authCheck.php');
+error_reporting(E_ERROR | E_PARSE);
 
 // Print out the navigation HTML
 $content = <<< NAV
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -16,19 +19,23 @@ $content = <<< NAV
             <span class="icon-bar"></span>
           </button>
           <img src="img/logo.svg" id="navlogo" width="50px" height="50px">
-          <a class="navbar-brand" href="#">Dajac Inc. Project Tracker</a>
+          <a class="navbar-brand" href="dashboard.php">Dajac Inc. <span class="navbar-brand-after">Project Tracker</span></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
 
             <!-- Top right navigation  -->
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="/dajacinc/dev/logout.php">Welcome <span style="color:white;">{$_SESSION['uid']}</span></a></li>
+            <!--<li><a href="/dajacinc/dev/logout.php">Welcome <span style="color:white;">{$_SESSION['uid']}</span></a></li>-->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome <span style="color:white;">{$_SESSION['uid']}</span><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/dajacinc/dev/logout.php">Logout</a></li>
+                </ul>
+            </li>
           </ul>
-          <!--<form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" action="search.php">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>-->
+          </form>
         </div>
       </div>
     </div>
@@ -37,12 +44,21 @@ $content = <<< NAV
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="projects.php">Projects</a></li>
 
             <!-- Sidebar Navigation -->
-            <li><a href="newuser.php">New User</a></li>
-            <li><a href="newclass.php">New Class</a></li>
-            <li><a href="newcustomer.php">New Customer</a></li>
+            <li>
+            <a href="punch.php?TaskID=clockout&CallbackURL={$_SERVER['REQUEST_URI']}">
+              <button class="btn btn-warning clockoutbtn">
+                Clock Out Of All Tasks
+              </button>
+            </a>
+            </li>
+            <li class="active"><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="search.php">Search</a></li>
+            <li><a href="manageusers.php">Manage Users</a></li>
+            <li><a href="managecustomers.php">Manage Customers</a></li>
+            <li><a href="manageprojects.php">Manage Projects</a></li>
+            <li><a href="projectstatistics.php">Project Statistics</a></li>
           </ul>
           <!--
             <ul class="nav nav-sidebar">

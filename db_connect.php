@@ -4,7 +4,9 @@
  * 
   */
 
-$conn = mysql_connect("localhost","pengbin","pengbin");
-mysql_select_db("pengbin_db", $conn);
+//$conn = mysql_connect("localhost","pengbin","pengbin");
+//mysql_select_db("pengbin_db", $conn);
+
+$link = mysqli_connect("localhost","acfelder","acfelder","acfelder_db");
 
 ?>

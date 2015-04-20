@@ -1,3 +1,8 @@
+@font-face {
+    font-family: newton;
+    src: url('fonts/newton.ttf');
+}
+
 body {
 	padding-top: 50px
 }
@@ -8,6 +13,19 @@ body {
 
 .navbar-brand {
 	color: white !important;
+	font-family: 'newton';
+	font-size: 30px;
+}
+
+.navbar-brand-after {
+	color: white !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	font-size: 25px;
+}
+
+.form-signin-heading {
+	font-family: 'newton';
+	font-size: 35px;
 }
 
 #navlogo {
@@ -19,4 +37,107 @@ body {
 	margin-right: 5px;
 	margin-left: 50px;
 	margin-top: -5px;
+}
+
+.dummy {
+	margin-top: 100%;
+}
+.tasktile {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    text-align:center;
+    padding-top:calc(50% - 45px);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.task {
+	margin-bottom: 20px !important;
+}
+
+.subtask-list:last-child {
+	background-color: #F5F5F5;
+}
+.subtask-list:last-child:hover {
+	background-color: #E9EBE9;
+}
+
+.center {
+	text-align: center;
+}
+
+.list-group {
+	margin-bottom: 0;
+}
+.progress {
+	margin-bottom: 0;
+}
+.modifytask {
+	width: 100%;
+	text-align: center;
+}
+
+.modifyicon {
+  margin: 0 2px 0 2px;
+}
+.clockoutbtn {
+  float:none;
+  display:inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin: 0 auto 15px auto;
+}
+
+.butn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.butn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.butn-success:hover,
+.butn-success:focus,
+.butn-success:active,
+.butn-success.active,
+.open > .dropdown-toggle.butn-success {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+.butn-striped {
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  -moz-background-size: 40px 40px;
+  -o-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+.butn-striped.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
 }
